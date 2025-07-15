@@ -7,7 +7,10 @@ import  io.cucumber.java.en.Then;
 import  io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 
-import starter.models.*;
+import starter.models.DataVerifiedModel;
+import starter.models.LoginModel;
+import starter.models.BusinessUnitModel;
+import starter.models.MeetingCreatedModel;
 import starter.questions.CheckNewBusinessUnitWasAdded;
 import starter.tasks.AddInformationForBusinessUnit;
 import starter.tasks.InformationForNewMeeting;
@@ -48,13 +51,8 @@ public class AddBusinessUnitStepDefinitions {
     @And("{actor} should be able to create a meeting with the created unit")
     public void shouldBeAbleToCreateAMeetingWithTheCreatedUnit(Actor actor , DataTable meetingInformation){
         MeetingCreatedModel meetingCreatedModel = GetInfoFromTable.getMeetingCreated(meetingInformation);
-        DataMeetingCreatedModel dataMeetingCreatedModel = GetInfoFromTable.getDataMeetingCreated(meetingInformation)
-      //  DataMeetingCreatedModel dataMeetingCreatedModel= GetInfoFromTable.getMeetingCreated(meetingInformation));
         actor.attemptsTo(
                new InformationForNewMeeting(meetingCreatedModel.getMeetingName(),meetingCreatedModel.getMeetingNumber())
-         //      new MeetingCreatedModel(meetingCreatedModel.getMeetingName(meetingInformation))
-
-             //  new CheckNewBusinessUnitWasAdded(dataVerifiedModel.getBusinessUnitVerified())
         );
       }
 

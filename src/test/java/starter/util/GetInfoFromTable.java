@@ -1,7 +1,10 @@
 package starter.util;
 
 import io.cucumber.datatable.DataTable;
-import starter.models.*;
+import starter.models.DataVerifiedModel;
+import starter.models.LoginModel;
+import starter.models.BusinessUnitModel;
+import starter.models.MeetingCreatedModel;
 
 import java.util.List;
 
@@ -60,21 +63,5 @@ public class GetInfoFromTable {
         meetingCreatedModel.setMeetingNumber(meetingNumber);
 
         return meetingCreatedModel;
-    }
-
-    public static DataMeetingCreatedModel getDataMeetingCreated(DataTable dataMeetingDateCreated){
-
-        List<List<String>> rows = dataMeetingDateCreated.asLists(String.class);
-        String meetingName = "" ;
-        String meetingNumber = "";
-        for (List<String> columns:rows) {
-            meetingName = columns.get(0);
-            meetingNumber = columns.get(1);
-        }
-        DataMeetingCreatedModel dataMeetingCreatedModel = new DataMeetingCreatedModel();
-        dataMeetingCreatedModel.getMeetingName(meetingName);
-        dataMeetingCreatedModel.getMeetingNumber(meetingNumber);
-
-        return dataMeetingCreatedModel;
     }
 }
